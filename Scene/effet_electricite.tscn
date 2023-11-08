@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://wsxtau48cujc"]
+
+[ext_resource type="Texture2D" uid="uid://catipk6mvkuoh" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_1.png" id="1_54nss"]
+[ext_resource type="Texture2D" uid="uid://cqa6b57hr44ry" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_2.png" id="2_176ca"]
+[ext_resource type="Texture2D" uid="uid://dt33jwugr4cxx" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_3.png" id="3_5b311"]
+[ext_resource type="Texture2D" uid="uid://dnp33gogsmxfb" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_4.png" id="4_qyvtm"]
+[ext_resource type="Texture2D" uid="uid://ci34h1lofcy5a" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_5.png" id="5_w7eem"]
+[ext_resource type="Texture2D" uid="uid://crav5b6cxf0t4" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_6.png" id="6_l036w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtkbf"]
+size = Vector2(172.117, 614.602)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bptoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_54nss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_176ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5b311")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qyvtm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w7eem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l036w")
+}],
+"loop": true,
+"name": &"eclaire",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of57x"]
+size = Vector2(352, 10)
+
+[node name="effet_electricite" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.325361, 0.572729)
+shape = SubResource("RectangleShape2D_mtkbf")
+
+[node name="animation_eclaire" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.325361, 0.572729)
+sprite_frames = SubResource("SpriteFrames_bptoo")
+animation = &"eclaire"
+autoplay = "eclaire"
+frame_progress = 0.00265703
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_of57x")

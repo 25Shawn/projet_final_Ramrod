@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgellbv32apdf"]
+
+[ext_resource type="Texture2D" uid="uid://be401mrirax2h" path="res://Asset/cyberPunkCharacters/3 Cyborg/Cyborg_idle.png" id="1_pbt3i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36obm"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi1gq"]
+atlas = ExtResource("1_pbt3i")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kny6y"]
+atlas = ExtResource("1_pbt3i")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p4dx"]
+atlas = ExtResource("1_pbt3i")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oli4a"]
+atlas = ExtResource("1_pbt3i")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wx0wb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kny6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p4dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oli4a")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="hero" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 8)
+shape = SubResource("CapsuleShape2D_36obm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wx0wb")
+animation = &"Idle"
+frame_progress = 0.155571
