@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7yd2qx16ormj"
-path="res://.godot/imported/COUPON.png-4fba216b2c34e8575541cefd984aca6c.ctex"
+uid="uid://pcg6kolovf1l"
+path="res://.godot/imported/10.png-e0489a7563f5dccfe7627006bfae0ef7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/tilemap_niveau2/COUPON.png"
-dest_files=["res://.godot/imported/COUPON.png-4fba216b2c34e8575541cefd984aca6c.ctex"]
+source_file="res://Asset/cyberPunkCharacters/3 Cyborg/3 Hands/3 Cyborg/10.png"
+dest_files=["res://.godot/imported/10.png-e0489a7563f5dccfe7627006bfae0ef7.ctex"]
 
 [params]
 

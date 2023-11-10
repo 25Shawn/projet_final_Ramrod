@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgpc0lj3fr2t4"]
+
+[ext_resource type="Texture2D" uid="uid://c8ejx3qcjjapi" path="res://Asset/tilemap_niveau2/2 Background/Night/1.png" id="1_d1c7l"]
+[ext_resource type="Texture2D" uid="uid://c3f76ptpphf2v" path="res://Asset/tilemap_niveau2/2 Background/Night/2.png" id="2_6w1st"]
+[ext_resource type="Texture2D" uid="uid://bh1v0buaejkjv" path="res://Asset/tilemap_niveau2/2 Background/Night/3.png" id="3_c6k8b"]
+[ext_resource type="Texture2D" uid="uid://bnol3ghb75t5f" path="res://Asset/tilemap_niveau2/2 Background/Night/5.png" id="4_seevo"]
+
+[node name="background" type="ParallaxBackground"]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="fond_gris" type="ParallaxLayer" parent="."]
+scale = Vector2(1, 4)
+motion_offset = Vector2(0, 6)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="fond_gris"]
+position = Vector2(0, -194)
+texture = ExtResource("1_d1c7l")
+centered = false
+
+[node name="batiment_gris_pale" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="batiment_gris_pale"]
+texture = ExtResource("2_6w1st")
+centered = false
+
+[node name="batiment_gris_fonce" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="batiment_gris_fonce"]
+texture = ExtResource("3_c6k8b")
+centered = false
+
+[node name="petite_batiment" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="petite_batiment"]
+texture = ExtResource("4_seevo")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(576, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 516.0
+color = Color(0.137255, 0.121569, 0.168627, 1)

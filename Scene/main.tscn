@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://c0odx312alvbc"]
+[gd_scene load_steps=4 format=3 uid="uid://c0odx312alvbc"]
+
+[ext_resource type="PackedScene" uid="uid://cgellbv32apdf" path="res://Scene/hero.tscn" id="1_sce1b"]
+[ext_resource type="PackedScene" uid="uid://drcnq5xg5dr5r" path="res://Scene/niveau_2.tscn" id="2_rn5vo"]
+[ext_resource type="PackedScene" uid="uid://dgpc0lj3fr2t4" path="res://Scene/background_niveau2.tscn" id="3_o68ft"]
 
 [node name="Main" type="Node"]
+
+[node name="hero" parent="." instance=ExtResource("1_sce1b")]
+position = Vector2(152, 448)
+
+[node name="Niveau2" parent="." instance=ExtResource("2_rn5vo")]
+position = Vector2(8, 480)
+
+[node name="background" parent="." instance=ExtResource("3_o68ft")]
