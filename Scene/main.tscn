@@ -1,15 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0odx312alvbc"]
+[gd_scene load_steps=5 format=3 uid="uid://c0odx312alvbc"]
 
 [ext_resource type="PackedScene" uid="uid://cgellbv32apdf" path="res://Scene/hero.tscn" id="1_sce1b"]
 [ext_resource type="PackedScene" uid="uid://drcnq5xg5dr5r" path="res://Scene/niveau_2.tscn" id="2_rn5vo"]
 [ext_resource type="PackedScene" uid="uid://dgpc0lj3fr2t4" path="res://Scene/background_niveau2.tscn" id="3_o68ft"]
+[ext_resource type="PackedScene" uid="uid://ddjasmc1lafgx" path="res://Scene/barre_vie.tscn" id="4_d7mwe"]
 
 [node name="Main" type="Node"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_d7mwe")]
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 17.0
+offset_bottom = 32.0
+
 [node name="hero" parent="." instance=ExtResource("1_sce1b")]
-position = Vector2(152, 448)
+position = Vector2(112, 520)
 
 [node name="Niveau2" parent="." instance=ExtResource("2_rn5vo")]
-position = Vector2(8, 480)
+position = Vector2(-32, 552)
 
 [node name="background" parent="." instance=ExtResource("3_o68ft")]

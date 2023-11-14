@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyj2jlxyla4a7"]
+
+[ext_resource type="FontFile" uid="uid://drhhgqlv3ocvx" path="res://Asset/ARCADECLASSIC.TTF" id="1_13m6r"]
+[ext_resource type="Script" path="res://Script/menu_option.gd" id="1_j7tai"]
+[ext_resource type="PackedScene" uid="uid://dgbx7fgttjs4f" path="res://Scene/background_menu.tscn" id="3_xkf5b"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j7tai")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -144.0
+offset_right = 271.0
+offset_bottom = -72.0
+grow_vertical = 0
+
+[node name="Tutoriel" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.313726, 0.454902, 0.623529, 1)
+theme_override_fonts/font = ExtResource("1_13m6r")
+theme_override_font_sizes/font_size = 25
+text = "Tutoriel"
+flat = true
+
+[node name="nouvelle_partie" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.313726, 0.454902, 0.623529, 1)
+theme_override_fonts/font = ExtResource("1_13m6r")
+theme_override_font_sizes/font_size = 25
+text = "Nouvelle    Partie"
+flat = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_xkf5b")]
+
+[connection signal="pressed" from="VBoxContainer/Tutoriel" to="." method="_on_tutoriel_pressed"]
+[connection signal="pressed" from="VBoxContainer/nouvelle_partie" to="." method="_on_nouvelle_partie_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://drcnq5xg5dr5r"]
+[gd_scene load_steps=44 format=3 uid="uid://drcnq5xg5dr5r"]
 
 [ext_resource type="Texture2D" uid="uid://cv1xd6w8jp4li" path="res://Asset/tilemap_niveau2/1 Tiles/Tileset.png" id="1_4dt6t"]
 [ext_resource type="PackedScene" uid="uid://wsxtau48cujc" path="res://Scene/effet_electricite.tscn" id="2_mon2m"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://8xamavq22dto" path="res://Scene/effet_electricite_disparaitre.tscn" id="19_yx12y"]
 [ext_resource type="PackedScene" uid="uid://byqtb110ij3bb" path="res://Scene/echelle.tscn" id="20_ctv64"]
 [ext_resource type="PackedScene" uid="uid://du7iqmpyqevt5" path="res://Scene/petite_echelle.tscn" id="21_lbm36"]
+[ext_resource type="Texture2D" uid="uid://bqlwhe6sil2d0" path="res://Asset/tilemap_niveau2/2 Background/Overlay.png" id="22_xw8y6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a2av2"]
 texture = ExtResource("1_4dt6t")
@@ -1715,3 +1716,10 @@ position = Vector2(2928, -176)
 
 [node name="petite_echelle" parent="." instance=ExtResource("21_lbm36")]
 position = Vector2(3208, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.235294)
+z_index = 10
+position = Vector2(2189, -248)
+scale = Vector2(4.38556, 1.5)
+texture = ExtResource("22_xw8y6")

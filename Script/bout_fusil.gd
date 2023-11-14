@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-const BOULE: PackedScene = preload("res://Scene/balle.tscn")
-
+var BOULE: PackedScene = preload("res://Scene/balle.tscn")
 func _ready():
 	$fire_effet.hide()
 
@@ -12,6 +11,7 @@ func projectile(direction: Vector2):
 		boule.global_position = self.global_position
 		var boule_rotation = direction.angle()
 		boule.rotation = boule_rotation
+
 		
 		$Timer_boule.start()
 
@@ -23,12 +23,12 @@ func _physics_process(delta):
 		$fire_effet.show()
 		$fire_effet.play("effet")
 		
-	move_and_slide()
+	
 
 func _on_fire_effet_animation_finished():
 	$fire_effet.hide()
 
-
 func _on_timer_boule_timeout():
 	$Timer_boule.stop()
 	$fire_effet.hide()
+	

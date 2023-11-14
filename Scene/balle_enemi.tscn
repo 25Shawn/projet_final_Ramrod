@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvmwo0pfaboe3"]
+
+[ext_resource type="Texture2D" uid="uid://d0m72b3vm5nwq" path="res://Asset/cyberPunkCharacters/Cyborg/5 Bullets/9.png" id="1_wm81h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs140"]
+size = Vector2(32, 16)
+
+[node name="balle_enemi" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_wm81h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fs140")

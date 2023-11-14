@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://baftyi70a1red"]
+
+[ext_resource type="PackedScene" uid="uid://dgbx7fgttjs4f" path="res://Scene/background_menu.tscn" id="1_1fh8b"]
+[ext_resource type="Script" path="res://Script/menu_demarrage.gd" id="1_aebyg"]
+[ext_resource type="FontFile" uid="uid://drhhgqlv3ocvx" path="res://Asset/Font/ARCADECLASSIC.TTF" id="1_qao3f"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aebyg")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_1fh8b")]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -129.0
+offset_right = 35.5
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="titre_jeu" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.470588, 0.470588, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("1_qao3f")
+theme_override_font_sizes/font_size = 100
+text = "R.A.M.R.O.D
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = 36.5
+offset_right = 61.5
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="commencer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.313726, 0.454902, 0.623529, 1)
+theme_override_fonts/font = ExtResource("1_qao3f")
+theme_override_font_sizes/font_size = 40
+text = " Start"
+flat = true
+
+[node name="quitter" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.313726, 0.454902, 0.623529, 1)
+theme_override_fonts/font = ExtResource("1_qao3f")
+theme_override_font_sizes/font_size = 25
+text = "Quitter"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/commencer" to="." method="_on_commencer_pressed"]
+[connection signal="pressed" from="VBoxContainer/quitter" to="." method="_on_quitter_pressed"]

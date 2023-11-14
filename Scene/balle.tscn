@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://d34je53qnn6g7"]
 
-[ext_resource type="Texture2D" uid="uid://0qgwm6ju8crl" path="res://Asset/cyberPunkCharacters/3 Cyborg/5 Bullets/5.png" id="1_6nw63"]
+[ext_resource type="Texture2D" uid="uid://0qgwm6ju8crl" path="res://Asset/cyberPunkCharacters/Cyborg/5 Bullets/5.png" id="1_6nw63"]
 [ext_resource type="Script" path="res://Script/balle.gd" id="1_wgti7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jfjl"]
-size = Vector2(8.15625, 4.60156)
+size = Vector2(16, 4.60156)
 
 [node name="balle" type="CharacterBody2D"]
 script = ExtResource("1_wgti7")
@@ -13,5 +13,6 @@ script = ExtResource("1_wgti7")
 shape = SubResource("RectangleShape2D_4jfjl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(1, 0.6)
 texture = ExtResource("1_6nw63")

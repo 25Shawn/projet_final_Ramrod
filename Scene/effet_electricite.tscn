@@ -40,7 +40,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of57x"]
 size = Vector2(352, 5)
 
-[node name="effet_electricite" type="Area2D"]
+[node name="effet_electricite" type="Area2D" groups=["ennemi"]]
 script = ExtResource("1_658oo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

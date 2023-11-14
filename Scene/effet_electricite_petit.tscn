@@ -36,7 +36,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="effet_electricite_petit" type="Area2D"]
+[node name="effet_electricite_petit" type="Area2D" groups=["ennemi"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8.74226e-08, -9.53674e-07)

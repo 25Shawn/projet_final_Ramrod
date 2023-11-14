@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://bo4g5wiew8vmc"]
+
+[ext_resource type="Texture2D" uid="uid://d3vxqp54bkgst" path="res://Asset/cyberPunkCharacters/3 Cyborg/2 Guns/4_1.png" id="1_0k1bp"]
+[ext_resource type="Texture2D" uid="uid://gycxspeuqsqi" path="res://Asset/cyberPunkCharacters/3 Cyborg/3 Hands/3 Cyborg/8.png" id="2_f5cxd"]
+[ext_resource type="Script" path="res://Script/bout_fusil.gd" id="3_m44dq"]
+[ext_resource type="Texture2D" uid="uid://bvmengy532b78" path="res://Asset/cyberPunkCharacters/3 Cyborg/4 Shoot_effects/6_1.png" id="4_buu2w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq1to"]
+atlas = ExtResource("4_buu2w")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h380"]
+atlas = ExtResource("4_buu2w")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyd6f"]
+atlas = ExtResource("4_buu2w")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmyk3"]
+atlas = ExtResource("4_buu2w")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koiyc"]
+atlas = ExtResource("4_buu2w")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph33h"]
+atlas = ExtResource("4_buu2w")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6hld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq1to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h380")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyd6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmyk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koiyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph33h")
+}],
+"loop": true,
+"name": &"effet",
+"speed": 20.0
+}]
+
+[node name="bras" type="CharacterBody2D"]
+
+[node name="gun" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+texture = ExtResource("1_0k1bp")
+
+[node name="bras_fusil" type="Sprite2D" parent="."]
+texture = ExtResource("2_f5cxd")
+
+[node name="bout_fusil" type="CharacterBody2D" parent="."]
+position = Vector2(16, -5)
+script = ExtResource("3_m44dq")
+
+[node name="fire_effet" type="AnimatedSprite2D" parent="bout_fusil"]
+position = Vector2(19, 9.53674e-07)
+scale = Vector2(0.833333, 0.666667)
+sprite_frames = SubResource("SpriteFrames_i6hld")
+animation = &"effet"
+autoplay = "effet"
+frame_progress = 0.202735
+
+[node name="Timer_boule" type="Timer" parent="bout_fusil"]
+wait_time = 0.2
+
+[connection signal="animation_finished" from="bout_fusil/fire_effet" to="bout_fusil" method="_on_fire_effet_animation_finished"]
+[connection signal="timeout" from="bout_fusil/Timer_boule" to="bout_fusil" method="_on_timer_boule_timeout"]

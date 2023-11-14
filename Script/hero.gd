@@ -25,33 +25,14 @@ func _animation():
 		
 	elif dash and is_on_floor():
 		$AnimatedSprite2D.play("Dash")
-		$point_rotation.position.x = -15
-		$point_rotation.position.y = 1
+		$point_rotation_droite.position.x = -15
+		$point_rotation_droite.position.y = 1
 	elif courir:
 		$AnimatedSprite2D.play("Run")
-		
-		$point_rotation.position.x = -10
-		$point_rotation.position.y = 4
-		
-		if$point_rotation/bras/gun.flip_h and $point_rotation/bras/bras_fusil.flip_h:
-			$point_rotation.position.x = 10
-			$point_rotation.position.y = 4
-			#$point_rotation/bras.rotation = angle
-			#$point_rotation/bras/bout_fusil/fire_effet.position.x = -20
-			#$point_rotation/bras/bout_fusil.position.x = -10
-			
-			
-			
-		elif !$point_rotation/bras/gun.flip_h and !$point_rotation/bras/bras_fusil.flip_h:
-			$point_rotation.position.x = -10
-			$point_rotation.position.y = 4
-			#$point_rotation/bras.rotation = 90
-			#$point_rotation/bras/bout_fusil/fire_effet.position.x = 25
-			#$point_rotation/bras/bout_fusil.position.x = 10
 	elif !courir:
 		$AnimatedSprite2D.play("Idle")
-		$point_rotation.position.x = -15
-		$point_rotation.position.y = 1
+		$point_rotation_droite.position.x = -15
+		$point_rotation_droite.position.y = 1
 
 func _dash():
 	if dash:
@@ -97,16 +78,22 @@ func _mouvement(delta):
 		courir = false
 		
 	if velocity.x < 0 && courir:
-		
 		$AnimatedSprite2D.flip_h = true
-		$point_rotation/bras/gun.flip_h = true
-		$point_rotation/bras/bras_fusil.flip_h = true
-		$point_rotation/bras/bout_fusil/fire_effet.flip_h = true
+		$point_rotation_droite.position.x = 10
+		$point_rotation_droite.position.y = 4
+		$point_rotation_droite/bras.position.x = 10
+		$point_rotation_droite/bras.position.y = -4
+		$point_rotation_droite/bras.rotation_degrees = 180
+		$point_rotation_droite/bras.scale.x = abs($point_rotation_droite/bras.scale.x) * -1
 	else:
 		$AnimatedSprite2D.flip_h = false
-		$point_rotation/bras/gun.flip_h = false
-		$point_rotation/bras/bras_fusil.flip_h = false
-		$point_rotation/bras/bout_fusil/fire_effet.flip_h = false
+		$point_rotation_droite.position.x = -10
+		$point_rotation_droite.position.y = 4
+		$point_rotation_droite/bras.position.x = 12
+		$point_rotation_droite/bras.position.y = 4
+		$point_rotation_droite/bras.rotation_degrees = 0
+		$point_rotation_droite/bras.scale.x = abs($point_rotation_droite/bras.scale.x)
+
 func _physics_process(delta):
 	
 	if not is_on_floor():
@@ -120,3 +107,4 @@ func _on_timer_timeout():
 	dash = false
 	SPEED = normal_speed
 	courir = false
+
