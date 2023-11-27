@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://exbasa57and2"]
+[gd_scene load_steps=10 format=3 uid="uid://exbasa57and2"]
 
 [ext_resource type="Texture2D" uid="uid://catipk6mvkuoh" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_1.png" id="1_fbbrc"]
+[ext_resource type="Script" path="res://Script/effet_electricite_petit.gd" id="1_npl5u"]
 [ext_resource type="Texture2D" uid="uid://cqa6b57hr44ry" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_2.png" id="2_3c4q6"]
 [ext_resource type="Texture2D" uid="uid://dt33jwugr4cxx" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_3.png" id="3_upgwb"]
 [ext_resource type="Texture2D" uid="uid://dnp33gogsmxfb" path="res://Asset/cyberPunkCharacters/PNG/Explosion_7/3/Explosion_2_4.png" id="4_nkc80"]
@@ -37,6 +38,7 @@ animations = [{
 }]
 
 [node name="effet_electricite_petit" type="Area2D" groups=["ennemi"]]
+script = ExtResource("1_npl5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8.74226e-08, -9.53674e-07)
@@ -50,3 +52,6 @@ scale = Vector2(0.211974, 0.158526)
 sprite_frames = SubResource("SpriteFrames_d0dus")
 animation = &"eclaire"
 autoplay = "eclaire"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

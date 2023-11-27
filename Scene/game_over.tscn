@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://5q6ss64idhrs"]
+
+[ext_resource type="FontFile" uid="uid://drhhgqlv3ocvx" path="res://Asset/Font/ARCADECLASSIC.TTF" id="1_foy37"]
+[ext_resource type="Script" path="res://Script/game_over.gd" id="1_njpr8"]
+
+[node name="Control" type="Control" groups=["gameover"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_njpr8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -131.0
+offset_right = 46.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_foy37")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.403922, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_foy37")
+theme_override_font_sizes/font_size = 20
+text = "Tu   es   mort"
+
+[node name="recommencer" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -15.5
+offset_right = 58.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.313726, 0.454902, 0.623529, 1)
+theme_override_fonts/font = ExtResource("1_foy37")
+theme_override_font_sizes/font_size = 25
+text = "recommencer"
+flat = true
+
+[connection signal="pressed" from="recommencer" to="." method="_on_recommencer_pressed"]

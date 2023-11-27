@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jfjl"]
 size = Vector2(16, 4.60156)
 
-[node name="balle" type="CharacterBody2D"]
+[node name="balle" type="CharacterBody2D" groups=["balle_joueur"]]
 script = ExtResource("1_wgti7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

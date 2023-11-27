@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0odx312alvbc"]
+[gd_scene load_steps=10 format=3 uid="uid://c0odx312alvbc"]
 
 [ext_resource type="PackedScene" uid="uid://cgellbv32apdf" path="res://Scene/hero.tscn" id="1_sce1b"]
+[ext_resource type="PackedScene" uid="uid://5q6ss64idhrs" path="res://Scene/game_over.tscn" id="2_63xny"]
 [ext_resource type="PackedScene" uid="uid://drcnq5xg5dr5r" path="res://Scene/niveau_2.tscn" id="2_rn5vo"]
 [ext_resource type="PackedScene" uid="uid://dgpc0lj3fr2t4" path="res://Scene/background_niveau2.tscn" id="3_o68ft"]
 [ext_resource type="PackedScene" uid="uid://ddjasmc1lafgx" path="res://Scene/barre_vie.tscn" id="4_d7mwe"]
+[ext_resource type="PackedScene" uid="uid://cljq6ph8kd6ed" path="res://Scene/enemi_voiture.tscn" id="5_qh4jv"]
+[ext_resource type="PackedScene" uid="uid://b3ut06ycy6tx4" path="res://Scene/ennemi_regulier.tscn" id="6_ptk5j"]
+[ext_resource type="PackedScene" uid="uid://de2hvb1yqh8fn" path="res://Scene/boss_niveau_2.tscn" id="8_evpxe"]
+[ext_resource type="PackedScene" uid="uid://bsuyosclbcjco" path="res://Scene/ennemi_robot_.tscn" id="8_l8ppq"]
 
-[node name="Main" type="Node"]
+[node name="Main_niveau2" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,10 +20,40 @@ offset_top = 8.0
 offset_right = 17.0
 offset_bottom = 32.0
 
+[node name="game_over" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="game_over" instance=ExtResource("2_63xny")]
+
 [node name="hero" parent="." instance=ExtResource("1_sce1b")]
-position = Vector2(112, 520)
+position = Vector2(48, 520)
 
 [node name="Niveau2" parent="." instance=ExtResource("2_rn5vo")]
 position = Vector2(-32, 552)
 
 [node name="background" parent="." instance=ExtResource("3_o68ft")]
+
+[node name="enemi_voiture" parent="." instance=ExtResource("5_qh4jv")]
+position = Vector2(1808, 424)
+
+[node name="ennemi_regulier" parent="." instance=ExtResource("6_ptk5j")]
+position = Vector2(1136, 720)
+
+[node name="ennemi_regulier2" parent="." instance=ExtResource("6_ptk5j")]
+position = Vector2(1528, 272)
+
+[node name="ennemi_regulier3" parent="." instance=ExtResource("6_ptk5j")]
+position = Vector2(1288, 928)
+
+[node name="ennemi_regulier4" parent="." instance=ExtResource("6_ptk5j")]
+position = Vector2(3880, 720)
+
+[node name="ennemi_regulier5" parent="." instance=ExtResource("6_ptk5j")]
+position = Vector2(3024, 656)
+
+[node name="Boss_niveau2" parent="." instance=ExtResource("8_evpxe")]
+position = Vector2(5240, 576)
+
+[node name="ennemi_robot_" parent="." instance=ExtResource("8_l8ppq")]
+position = Vector2(264, 464)
+
+[connection signal="heatlh" from="hero" to="CanvasLayer/Control" method="_on_hero_heatlh"]

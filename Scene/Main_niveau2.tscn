@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dn50u3wir4wph"]
+
+[ext_resource type="PackedScene" uid="uid://ddjasmc1lafgx" path="res://Scene/barre_vie.tscn" id="1_fqdcy"]
+[ext_resource type="PackedScene" uid="uid://cgellbv32apdf" path="res://Scene/hero.tscn" id="3_uq4kx"]
+[ext_resource type="PackedScene" uid="uid://drcnq5xg5dr5r" path="res://Scene/niveau_2.tscn" id="4_0hxjq"]
+[ext_resource type="PackedScene" uid="uid://dgpc0lj3fr2t4" path="res://Scene/background_niveau2.tscn" id="5_abrlg"]
+[ext_resource type="PackedScene" uid="uid://85kyaun5dqbr" path="res://Scene/enemi_voiture_.tscn" id="8_888vn"]
+[ext_resource type="PackedScene" uid="uid://but2cagegw0wo" path="res://Scene/enemi_regulier_.tscn" id="8_mabvq"]
+[ext_resource type="PackedScene" uid="uid://w1eiyla8vh4e" path="res://Scene/boss_niveau_2_.tscn" id="9_4a2k5"]
+[ext_resource type="PackedScene" uid="uid://bsuyosclbcjco" path="res://Scene/ennemi_robot_.tscn" id="9_c5yot"]
+
+[node name="Main_niveau2" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("1_fqdcy")]
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 17.0
+offset_bottom = 32.0
+
+[node name="hero" parent="." instance=ExtResource("3_uq4kx")]
+position = Vector2(48, 520)
+
+[node name="Niveau2" parent="." instance=ExtResource("4_0hxjq")]
+position = Vector2(-32, 552)
+
+[node name="background" parent="." instance=ExtResource("5_abrlg")]
+
+[node name="enemi_voiture_" parent="." instance=ExtResource("8_888vn")]
+position = Vector2(1808, 424)
+
+[node name="ennemi_robot_" parent="." instance=ExtResource("9_c5yot")]
+position = Vector2(1128, 696)
+
+[node name="ennemi_robot_2" parent="." instance=ExtResource("9_c5yot")]
+position = Vector2(1248, 696)
+
+[node name="enemi_regulier_" parent="." instance=ExtResource("8_mabvq")]
+position = Vector2(392, 736)
+
+[node name="enemi_regulier_2" parent="." instance=ExtResource("8_mabvq")]
+position = Vector2(480, 736)
+
+[node name="enemi_regulier_3" parent="." instance=ExtResource("8_mabvq")]
+position = Vector2(568, 736)
+
+[node name="enemi_regulier_4" parent="." instance=ExtResource("8_mabvq")]
+position = Vector2(1152, 928)
+
+[node name="enemi_regulier_5" parent="." instance=ExtResource("8_mabvq")]
+position = Vector2(1216, 928)
+
+[node name="enemi_regulier_6" parent="." instance=ExtResource("8_mabvq")]
+position = Vector2(1336, 928)
+
+[node name="boss_niveau_2_" parent="." instance=ExtResource("9_4a2k5")]
+position = Vector2(5240, 568)
+
+[connection signal="heatlh" from="hero" to="CanvasLayer/Control" method="_on_hero_heatlh"]
