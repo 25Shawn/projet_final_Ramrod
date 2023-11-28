@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal heatlh()
-
 @export var vie = 100
 var valeur
 
@@ -121,22 +119,9 @@ func _mouvement(delta):
 		$point_rotation_droite/bras.rotation_degrees = 0
 		$point_rotation_droite/bras.scale.x = abs($point_rotation_droite/bras.scale.x)
 
-
-func _get_health() -> int:
-	return vie
-
-func _on_heatlh():
-	var valeur = _get_health()
-	return valeur
-
-func _ready():
-	#$Control.hide()
-	pass
-	
 func _physics_process(delta):
-	emit_signal("heatlh")
 	enemie_attaque()
-	
+	$Control/remplisement_vie.value = vie
 	if vie <= 0:
 		joueur_vivant = false
 		vie = 0
@@ -153,24 +138,21 @@ func _on_timer_timeout():
 	SPEED = normal_speed
 	courir = false
 
-func player():
-	pass
-
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemies"):
 		enemie_range = true
 	elif body.is_in_group("balle_enemie"):
 		enemie_range = true
 		body.queue_free()
-	elif body.is_in_group("ennemi"):
-		print("bye")
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("enemies"):
 		enemie_range = false
 		$point_rotation_droite.show()
+	elif body.is_in_group("balle_enemie"):
+		enemie_range = false
+		$point_rotation_droite.show()
 		
-
 func enemie_attaque():
 	if enemie_range and enemie_cooldown:
 		vie -= 10

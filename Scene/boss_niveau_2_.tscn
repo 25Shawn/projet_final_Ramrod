@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://w1eiyla8vh4e"]
+[gd_scene load_steps=48 format=3 uid="uid://w1eiyla8vh4e"]
 
 [ext_resource type="Script" path="res://Script/boss_niveau_2_.gd" id="1_haxvi"]
 [ext_resource type="Texture2D" uid="uid://bm8ygxm047j8h" path="res://Asset/boss/1/Idle.png" id="1_hlfrl"]
@@ -7,6 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://c3rjvi781uc8l" path="res://Asset/boss/1/Hurt.png" id="4_wggef"]
 [ext_resource type="Script" path="res://Script/canon_gauche.gd" id="5_kdwqs"]
 [ext_resource type="Texture2D" uid="uid://crouhcb3mi5ef" path="res://Asset/boss/1/Walk.png" id="6_lw3ri"]
+[ext_resource type="Texture2D" uid="uid://co2uavpkgwvc7" path="res://Asset/boss/explosion/Explosion_A.png" id="8_530bw"]
+[ext_resource type="Texture2D" uid="uid://bluyyykq8yyw5" path="res://Asset/boss/explosion/Explosion_B.png" id="9_jqnrj"]
+[ext_resource type="Texture2D" uid="uid://h1lcscf46i65" path="res://Asset/boss/explosion/Explosion_C.png" id="10_aqefo"]
+[ext_resource type="Texture2D" uid="uid://crj4qkybpkma6" path="res://Asset/boss/explosion/Explosion_D.png" id="11_371x0"]
+[ext_resource type="Texture2D" uid="uid://dh64as8r0hebo" path="res://Asset/boss/explosion/Explosion_E.png" id="12_o57ac"]
+[ext_resource type="Texture2D" uid="uid://c31c6gstb6vb8" path="res://Asset/boss/explosion/Explosion_F.png" id="13_5adnj"]
+[ext_resource type="Texture2D" uid="uid://dkg5w05nblegn" path="res://Asset/boss/explosion/Explosion_G.png" id="14_2yxk7"]
+[ext_resource type="Texture2D" uid="uid://dhwa42hbnmhfk" path="res://Asset/boss/explosion/Explosion_H.png" id="15_s6n3m"]
+[ext_resource type="PackedScene" uid="uid://m50jb41lr0xu" path="res://Scene/barre_vie_ennemi.tscn" id="16_xcm3t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybt2u"]
 radius = 64.0
@@ -173,9 +182,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7p0de")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -215,6 +224,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2f05k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_530bw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jqnrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aqefo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_371x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o57ac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5adnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2yxk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s6n3m")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 6.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4xcb3"]
 radius = 477.46
 
@@ -235,7 +276,20 @@ shape = SubResource("CapsuleShape2D_ybt2u")
 position = Vector2(2.72848e-12, 1.13687e-13)
 scale = Vector2(2.1, 2.1)
 sprite_frames = SubResource("SpriteFrames_cmuof")
-animation = &"attack"
+animation = &"death"
+autoplay = "Idle"
+frame = 5
+frame_progress = 1.0
+
+[node name="explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-16, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2f05k")
+animation = &"explosion"
+autoplay = "explosion"
+frame = 7
+frame_progress = 1.0
 
 [node name="detection" type="Area2D" parent="."]
 position = Vector2(-32, 16)
@@ -262,6 +316,13 @@ script = ExtResource("5_kdwqs")
 [node name="Timer_gauche" type="Timer" parent="canon_gauche"]
 wait_time = 0.5
 
+[node name="barre_vie_ennemi" parent="." instance=ExtResource("16_xcm3t")]
+offset_left = -144.0
+offset_top = -136.0
+offset_right = -144.0
+offset_bottom = -136.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

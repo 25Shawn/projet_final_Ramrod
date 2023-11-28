@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://cayb7pf3kauc7"]
+
+[ext_resource type="FontFile" uid="uid://drhhgqlv3ocvx" path="res://Asset/Font/ARCADECLASSIC.TTF" id="1_6q3t7"]
+[ext_resource type="Script" path="res://Script/victoire.gd" id="1_mivg5"]
+[ext_resource type="PackedScene" uid="uid://dgbx7fgttjs4f" path="res://Scene/background_menu.tscn" id="2_1ic0k"]
+
+[node name="Victoire" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mivg5")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_1ic0k")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -20.0
+offset_right = 30.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6q3t7")
+theme_override_font_sizes/font_size = 60
+text = "Victoire"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = 48.0
+offset_right = 154.5
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_6q3t7")
+text = "Felicitation    !!!"
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_6q3t7")
+text = "Vous   avez   retabli   la   paix   dans   le   monde."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

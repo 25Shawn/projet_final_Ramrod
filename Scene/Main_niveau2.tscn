@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dn50u3wir4wph"]
+[gd_scene load_steps=11 format=3 uid="uid://dn50u3wir4wph"]
 
+[ext_resource type="Script" path="res://Script/Main_niveau2.gd" id="1_cd5s6"]
 [ext_resource type="PackedScene" uid="uid://ddjasmc1lafgx" path="res://Scene/barre_vie.tscn" id="1_fqdcy"]
 [ext_resource type="PackedScene" uid="uid://cgellbv32apdf" path="res://Scene/hero.tscn" id="3_uq4kx"]
 [ext_resource type="PackedScene" uid="uid://drcnq5xg5dr5r" path="res://Scene/niveau_2.tscn" id="4_0hxjq"]
@@ -9,9 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://w1eiyla8vh4e" path="res://Scene/boss_niveau_2_.tscn" id="9_4a2k5"]
 [ext_resource type="PackedScene" uid="uid://bsuyosclbcjco" path="res://Scene/ennemi_robot_.tscn" id="9_c5yot"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thkk8"]
+size = Vector2(47.625, 95.25)
+
 [node name="Main_niveau2" type="Node"]
+script = ExtResource("1_cd5s6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("1_fqdcy")]
 offset_left = 9.0
@@ -55,6 +61,12 @@ position = Vector2(1216, 928)
 position = Vector2(1336, 928)
 
 [node name="boss_niveau_2_" parent="." instance=ExtResource("9_4a2k5")]
-position = Vector2(5240, 568)
+position = Vector2(920, 480)
 
-[connection signal="heatlh" from="hero" to="CanvasLayer/Control" method="_on_hero_heatlh"]
+[node name="detection_victoire" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_victoire"]
+position = Vector2(2936, 1088)
+shape = SubResource("RectangleShape2D_thkk8")
+
+[connection signal="body_entered" from="detection_victoire" to="." method="_on_detection_victoire_body_entered"]

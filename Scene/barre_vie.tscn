@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddjasmc1lafgx"]
+[gd_scene load_steps=4 format=3 uid="uid://ddjasmc1lafgx"]
 
 [ext_resource type="Script" path="res://Script/barre_vie.gd" id="1_fp64j"]
 [ext_resource type="Texture2D" uid="uid://h4tx76kep17y" path="res://Asset/cyberPunkCharacters/HP/Hearts/PNG/health_bar/health_bar_decoration.png" id="2_6yka8"]
-[ext_resource type="Texture2D" uid="uid://draussw50tlop" path="res://Asset/cyberPunkCharacters/HP/label_HP_bg.png" id="2_68xkl"]
 [ext_resource type="Texture2D" uid="uid://c6sk0hg87myc8" path="res://Asset/cyberPunkCharacters/HP/Hearts/PNG/health_bar/health_bar.png" id="3_t5htl"]
-[ext_resource type="Texture2D" uid="uid://bxtav6g1ul2gr" path="res://Asset/cyberPunkCharacters/HP/energy_bar_fill.png" id="5_gllh4"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,51 +15,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fp64j")
 
-[node name="fond" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 208.0
-offset_bottom = 72.0
-texture = ExtResource("2_68xkl")
-
-[node name="barre_vie" type="TextureRect" parent="."]
+[node name="jauge" type="TextureRect" parent="."]
 layout_mode = 2
-offset_left = 8.0
+offset_left = 17.0
 offset_top = 8.0
-offset_right = 77.0
-offset_bottom = 27.0
-scale = Vector2(3, 3)
+offset_right = 85.0
+offset_bottom = 29.0
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_6yka8")
 expand_mode = 2
 stretch_mode = 2
 
 [node name="remplisement_vie" type="TextureProgressBar" parent="."]
 layout_mode = 2
-offset_left = 49.0
+offset_left = 30.0
 offset_top = 8.0
-offset_right = 98.0
+offset_right = 79.0
 offset_bottom = 25.0
-scale = Vector2(3, 3)
+scale = Vector2(0.9, 0.9)
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture_progress = ExtResource("3_t5htl")
-
-[node name="barre_energie" type="TextureRect" parent="."]
-modulate = Color(0.556863, 0.556863, 0.537255, 1)
-layout_mode = 0
-offset_left = 42.0
-offset_top = 54.0
-offset_right = 356.0
-offset_bottom = 124.0
-scale = Vector2(0.5, 0.2)
-texture = ExtResource("2_68xkl")
-
-[node name="remplisement_energie" type="TextureProgressBar" parent="."]
-modulate = Color(0, 1, 1, 1)
-layout_mode = 0
-offset_left = 40.0
-offset_top = 55.0
-offset_right = 288.0
-offset_bottom = 95.0
-scale = Vector2(0.65, 0.3)
-texture_over = ExtResource("5_gllh4")
-texture_progress = ExtResource("5_gllh4")

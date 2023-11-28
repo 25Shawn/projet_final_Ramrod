@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://m50jb41lr0xu"]
+
+[ext_resource type="Texture2D" uid="uid://draussw50tlop" path="res://Asset/cyberPunkCharacters/HP/label_HP_bg.png" id="1_5b5qc"]
+[ext_resource type="Script" path="res://Script/barre_vie_ennemi.gd" id="1_ggnkq"]
+[ext_resource type="Texture2D" uid="uid://bxtav6g1ul2gr" path="res://Asset/cyberPunkCharacters/HP/energy_bar_fill.png" id="2_rxu1e"]
+
+[node name="barre_vie_ennemi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ggnkq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_right = 306.0
+offset_bottom = 46.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_5b5qc")
+
+[node name="remplissement_barre" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 296.0
+offset_bottom = 38.0
+texture_progress = ExtResource("2_rxu1e")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyj2jlxyla4a7"]
 
-[ext_resource type="FontFile" uid="uid://drhhgqlv3ocvx" path="res://Asset/ARCADECLASSIC.TTF" id="1_13m6r"]
+[ext_resource type="FontFile" uid="uid://drhhgqlv3ocvx" path="res://Asset/Font/ARCADECLASSIC.TTF" id="1_13m6r"]
 [ext_resource type="Script" path="res://Script/menu_option.gd" id="1_j7tai"]
 [ext_resource type="PackedScene" uid="uid://dgbx7fgttjs4f" path="res://Scene/background_menu.tscn" id="3_xkf5b"]
 
@@ -43,6 +43,20 @@ text = "Nouvelle    Partie"
 flat = true
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_xkf5b")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 64.0
+offset_right = 987.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 20
+text = "En 2070, la planète entière est dominée par l’intelligence artificielle qui est divisée en deux robots géants dans deux biomes différents, son plan est de gazer la planète pour transformer la population en zombie.
+
+ En raison de cela, le gouvernement à mis en place le projet R.a.m.r.o.d. Ce projet secret gouvernemental consiste à transformer un ex-militaire en cyborg qui peut effectuer plusieurs styles de combat. 
+
+Maintenant, Ramrod doit détruire les deux robots avant que l’intelligence artificielle propage son gaz toxique."
+autowrap_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/Tutoriel" to="." method="_on_tutoriel_pressed"]
 [connection signal="pressed" from="VBoxContainer/nouvelle_partie" to="." method="_on_nouvelle_partie_pressed"]

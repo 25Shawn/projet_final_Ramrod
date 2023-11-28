@@ -5,12 +5,11 @@ var chasse = false
 var player = null
 
 var attaque = false
-var vie_enemie = 100
+var vie_enemie = 400
 var joueur_range = false
 var ennemi_vivant = true
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 func _ready():
 	$AnimatedSprite2D.play("Idle")
 	
@@ -53,12 +52,16 @@ func animation():
 			
 			elif joueur_range:
 				$AnimatedSprite2D.play("hurt")
+			#else:
+			#	$AnimatedSprite2D.play("Idle")
 				
 	elif !ennemi_vivant:
 		$AnimatedSprite2D.play("death")
 		
 		
+		
 func _physics_process(delta):
+	$barre_vie_ennemi/remplissement_barre.value = vie_enemie
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -80,9 +83,11 @@ func _on_detection_body_exited(body):
 func dammage():
 	if joueur_range:
 		vie_enemie -= 10
-		print(vie_enemie)
+		#print(vie_enemie)
 		if vie_enemie <= 0:
 			ennemi_vivant = false
+			$explosion.show()
+			$explosion.play("explosion")
 			
 
 func _on_hitbox_body_entered(body):
@@ -92,3 +97,12 @@ func _on_hitbox_body_entered(body):
 func _on_hitbox_body_exited(body):
 	if body.is_in_group("balle_joueur"):
 		joueur_range = false
+
+
+func _on_animated_sprite_2d_animation_finished():
+	var finished_animation = $AnimatedSprite2D.animation
+	if finished_animation == "death":
+		queue_free()
+		
+	
+

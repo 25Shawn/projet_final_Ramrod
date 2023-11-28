@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://6qplod1i0cpi"]
+
+[ext_resource type="Texture2D" uid="uid://draussw50tlop" path="res://Asset/cyberPunkCharacters/HP/label_HP_bg.png" id="1_ovxyf"]
+
+[node name="instruction_4" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 368.0
+offset_bottom = 38.0
+texture = ExtResource("1_ovxyf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 358.0
+offset_bottom = 130.0
+text = "Passer dans le tunnel pour terminer le tutoriel"

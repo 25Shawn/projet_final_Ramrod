@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://butu8vkhhqybt"]
+
+[ext_resource type="Texture2D" uid="uid://draussw50tlop" path="res://Asset/cyberPunkCharacters/HP/label_HP_bg.png" id="1_o5nna"]
+
+[node name="instruction_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 488.0
+offset_bottom = 96.0
+texture = ExtResource("1_o5nna")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "- Appuyer sur W pour un saut et deux fois pour un double saut 
+- Appuyer sur A pour aller vers la gauche
+- Appuyer sur D pour aller vers la droite
+"

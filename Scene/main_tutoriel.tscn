@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://c22crtimvqkjy"]
+
+[ext_resource type="PackedScene" uid="uid://82qhm5c4mnwp" path="res://Scene/map_tutoriel.tscn" id="1_hl78e"]
+[ext_resource type="Script" path="res://Script/main_tutoriel.gd" id="1_vodps"]
+[ext_resource type="PackedScene" uid="uid://dgpc0lj3fr2t4" path="res://Scene/background_niveau2.tscn" id="2_lw4cf"]
+[ext_resource type="PackedScene" uid="uid://cgellbv32apdf" path="res://Scene/hero.tscn" id="3_rqasg"]
+[ext_resource type="PackedScene" uid="uid://butu8vkhhqybt" path="res://Scene/instruction_1.tscn" id="4_os2tc"]
+[ext_resource type="PackedScene" uid="uid://ph0axnvllunk" path="res://Scene/instruction_2.tscn" id="5_ppyly"]
+[ext_resource type="PackedScene" uid="uid://dpqbinwnekw5b" path="res://Scene/instruction_3.tscn" id="6_gtxg5"]
+[ext_resource type="PackedScene" uid="uid://6qplod1i0cpi" path="res://Scene/instruction_4.tscn" id="8_jv1vy"]
+[ext_resource type="PackedScene" uid="uid://bsuyosclbcjco" path="res://Scene/ennemi_robot_.tscn" id="8_wv2bp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yka6f"]
+size = Vector2(82, 121)
+
+[node name="Main_tutoriel" type="Node"]
+script = ExtResource("1_vodps")
+
+[node name="map_tutoriel" parent="." instance=ExtResource("1_hl78e")]
+position = Vector2(0, 592)
+
+[node name="background" parent="." instance=ExtResource("2_lw4cf")]
+
+[node name="hero" parent="." instance=ExtResource("3_rqasg")]
+position = Vector2(160, 552)
+
+[node name="instruction_1" parent="." instance=ExtResource("4_os2tc")]
+offset_left = 64.0
+offset_top = 280.0
+offset_right = 64.0
+offset_bottom = 280.0
+
+[node name="instruction_2" parent="." instance=ExtResource("5_ppyly")]
+offset_left = 648.0
+offset_top = 280.0
+offset_right = 648.0
+offset_bottom = 280.0
+
+[node name="instruction_3" parent="." instance=ExtResource("6_gtxg5")]
+offset_left = 984.0
+offset_top = 280.0
+offset_right = 984.0
+offset_bottom = 280.0
+
+[node name="instruction_4" parent="." instance=ExtResource("8_jv1vy")]
+offset_left = 1560.0
+offset_top = 392.0
+offset_right = 1560.0
+offset_bottom = 392.0
+
+[node name="ennemi_robot_" parent="." instance=ExtResource("8_wv2bp")]
+position = Vector2(1624, 512)
+
+[node name="Timer_tuto" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="fin_tuto" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fin_tuto"]
+position = Vector2(2064, 536)
+shape = SubResource("RectangleShape2D_yka6f")
+
+[connection signal="body_entered" from="fin_tuto" to="." method="_on_fin_tuto_body_entered"]
