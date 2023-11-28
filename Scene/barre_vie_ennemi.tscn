@@ -21,12 +21,14 @@ layout_mode = 0
 offset_left = 2.0
 offset_right = 306.0
 offset_bottom = 46.0
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.25, 0.3)
 texture = ExtResource("1_5b5qc")
 
 [node name="remplissement_barre" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_top = -2.0
-offset_right = 296.0
-offset_bottom = 38.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 251.0
+offset_bottom = 41.0
+scale = Vector2(0.3, 0.3)
 texture_progress = ExtResource("2_rxu1e")

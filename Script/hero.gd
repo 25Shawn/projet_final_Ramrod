@@ -1,4 +1,5 @@
 extends CharacterBody2D
+#Fait par Shawn Dutil
 
 @export var vie = 100
 var valeur
@@ -31,6 +32,7 @@ func _animation():
 	elif enemie_range:
 		$AnimatedSprite2D.play("hurt")
 		$point_rotation_droite.hide()
+		
 	elif tomber:
 		$AnimatedSprite2D.play("Falling")
 	elif sauter and !is_on_floor():
@@ -118,6 +120,7 @@ func _mouvement(delta):
 		$point_rotation_droite/bras.position.y = 4
 		$point_rotation_droite/bras.rotation_degrees = 0
 		$point_rotation_droite/bras.scale.x = abs($point_rotation_droite/bras.scale.x)
+
 
 func _physics_process(delta):
 	enemie_attaque()

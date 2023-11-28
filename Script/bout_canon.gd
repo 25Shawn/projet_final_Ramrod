@@ -1,4 +1,5 @@
 extends CharacterBody2D
+#Fait par Shawn Dutil
 
 @export var dommage = 10
 

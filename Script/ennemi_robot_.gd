@@ -1,4 +1,5 @@
 extends CharacterBody2D
+#Fait par Shawn Dutil
 
 var speed = 100
 var chasse = false
@@ -35,6 +36,8 @@ func animation():
 					$hitbox/CollisionShape2D.position.y = 32
 					$attaque_detection/CollisionShape2D.position.x = 24
 					$attaque_detection/CollisionShape2D.position.y = 32
+					$barre_vie_ennemi.position.x = 64
+					$barre_vie_ennemi.position.y = -40
 				else:
 					$AnimatedSprite2D.flip_h = false
 					$CollisionShape2D.position.x = -24
@@ -45,6 +48,8 @@ func animation():
 					$hitbox/CollisionShape2D.position.y = 32
 					$attaque_detection/CollisionShape2D.position.x = -24
 					$attaque_detection/CollisionShape2D.position.y = 32
+					$barre_vie_ennemi.position.x = -64
+					$barre_vie_ennemi.position.y = -40
 			
 			elif joueur_range:
 				$AnimatedSprite2D.play("hurt")
@@ -53,7 +58,7 @@ func animation():
 		$AnimatedSprite2D.play("death")
 
 func _physics_process(delta):
-	
+	$barre_vie_ennemi/remplissement_barre.value = vie_enemie
 	dammage()
 
 	# Add the gravity.

@@ -1,6 +1,6 @@
 extends CharacterBody2D
+#Fait par Shawn Dutil
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var vie_enemie = 100
 var joueur_range = false
@@ -13,6 +13,7 @@ func animation():
 		$AnimatedSprite2D.play("death")
 		
 func _physics_process(delta):
+	$barre_vie_ennemi/remplissement_barre.value = vie_enemie
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta

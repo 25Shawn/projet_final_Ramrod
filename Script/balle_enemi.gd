@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+#Fait par Shawn Dutil
 var SPEED = 500
 
 func _physics_process(delta):

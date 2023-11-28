@@ -40,7 +40,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_naiad"]
 size = Vector2(240, 8)
 
-[node name="effet_electricite_disparaitre" type="Area2D"]
+[node name="effet_electricite_disparaitre" type="Area2D" groups=["disparition"]]
 script = ExtResource("1_f6elw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,5 +61,8 @@ autoplay = "eclaire"
 position = Vector2(8, 16)
 shape = SubResource("RectangleShape2D_naiad")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://85kyaun5dqbr"]
+[gd_scene load_steps=29 format=3 uid="uid://85kyaun5dqbr"]
 
 [ext_resource type="Script" path="res://Script/enemi_voiture_.gd" id="1_5dsy5"]
 [ext_resource type="Texture2D" uid="uid://b0obenwu2tutt" path="res://Asset/ennemis/niveau2/1/Idle.png" id="1_exs5v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjofvhkcoviy" path="res://Asset/ennemis/niveau2/1/Death.png" id="3_t7rvf"]
 [ext_resource type="Texture2D" uid="uid://dsqntvw3kh1sy" path="res://Asset/ennemis/niveau2/1/Hurt.png" id="4_t524e"]
 [ext_resource type="Script" path="res://Script/bout_canon.gd" id="5_g7pp0"]
+[ext_resource type="PackedScene" uid="uid://m50jb41lr0xu" path="res://Scene/barre_vie_ennemi.tscn" id="7_5s8ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bhep"]
 size = Vector2(128, 104)
@@ -190,6 +191,12 @@ position = Vector2(136, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitox"]
 position = Vector2(-200, -15.5)
 shape = SubResource("RectangleShape2D_x30ot")
+
+[node name="barre_vie_ennemi" parent="." instance=ExtResource("7_5s8ah")]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = -56.0
+offset_bottom = -56.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="detection_attaque" to="bout_canon" method="_on_detection_attaque_body_entered"]

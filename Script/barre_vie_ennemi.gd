@@ -1,6 +1,5 @@
 extends Control
+#Fait par Shawn Dutil
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$remplissement_barre.value = 100

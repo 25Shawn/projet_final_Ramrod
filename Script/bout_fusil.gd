@@ -1,4 +1,5 @@
 extends CharacterBody2D
+#Fait par Shawn Dutil
 
 var BOULE: PackedScene = preload("res://Scene/balle.tscn")
 func _ready():

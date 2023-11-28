@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://but2cagegw0wo"]
+[gd_scene load_steps=38 format=3 uid="uid://but2cagegw0wo"]
 
 [ext_resource type="Script" path="res://Script/enemi_regulier_.gd" id="1_51stt"]
 [ext_resource type="Texture2D" uid="uid://bi6eof3hfckth" path="res://Asset/ennemis/niveau2/3/Idle.png" id="1_j1xk4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b4tccj76xjdq3" path="res://Asset/ennemis/niveau2/3/Death.png" id="3_ntd2e"]
 [ext_resource type="Texture2D" uid="uid://ct3qu73mlb04b" path="res://Asset/ennemis/niveau2/3/Hurt.png" id="4_sxwnv"]
 [ext_resource type="Texture2D" uid="uid://bydyvecf1u1xm" path="res://Asset/ennemis/niveau2/3/Walk.png" id="6_8h8qh"]
+[ext_resource type="PackedScene" uid="uid://m50jb41lr0xu" path="res://Scene/barre_vie_ennemi.tscn" id="7_usvrk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3jvg"]
 radius = 24.0
@@ -252,6 +253,12 @@ shape = SubResource("CircleShape2D_ofqt1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attaque"]
 position = Vector2(-24, 24)
 shape = SubResource("CircleShape2D_4yxfc")
+
+[node name="barre_vie_ennemi" parent="." instance=ExtResource("7_usvrk")]
+offset_left = -64.0
+offset_top = -24.0
+offset_right = -64.0
+offset_bottom = -24.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]

@@ -1,4 +1,5 @@
 extends Area2D
+#Fait par Shawn Dutil
 
 @export var dommage = 5
 var vie_joueur = 100

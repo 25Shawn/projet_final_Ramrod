@@ -255,10 +255,10 @@ position = Vector2(-24, 32)
 shape = SubResource("CircleShape2D_3b46r")
 
 [node name="barre_vie_ennemi" parent="." instance=ExtResource("7_qtufs")]
-offset_left = -168.0
-offset_top = -72.0
-offset_right = -168.0
-offset_bottom = -72.0
+offset_left = -64.0
+offset_top = -40.0
+offset_right = -64.0
+offset_bottom = -40.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="detection" to="." method="_on_area_2d_body_entered"]

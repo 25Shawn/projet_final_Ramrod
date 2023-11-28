@@ -1,4 +1,5 @@
 extends Node
+#Fait par Shawn Dutil
 
 func _ready():
 	$fin_tuto.visible = false
@@ -7,11 +8,9 @@ func _ready():
 func _process(delta):
 	var ennemi_robot = $ennemi_robot_
 	
-
 	if !is_instance_valid(ennemi_robot):
 		$instruction_4.visible = true
 		$fin_tuto.visible = true
-
 
 func _on_fin_tuto_body_entered(body):
 	if body.is_in_group("joueur_principale"):

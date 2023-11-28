@@ -49,7 +49,7 @@ offset_right = 1560.0
 offset_bottom = 392.0
 
 [node name="ennemi_robot_" parent="." instance=ExtResource("8_wv2bp")]
-position = Vector2(1624, 512)
+position = Vector2(1648, 512)
 
 [node name="Timer_tuto" type="Timer" parent="."]
 wait_time = 0.2

@@ -61,7 +61,7 @@ position = Vector2(1216, 928)
 position = Vector2(1336, 928)
 
 [node name="boss_niveau_2_" parent="." instance=ExtResource("9_4a2k5")]
-position = Vector2(920, 480)
+position = Vector2(5240, 552)
 
 [node name="detection_victoire" type="Area2D" parent="."]
 
@@ -69,4 +69,5 @@ position = Vector2(920, 480)
 position = Vector2(2936, 1088)
 shape = SubResource("RectangleShape2D_thkk8")
 
+[connection signal="enemi_mort" from="boss_niveau_2_" to="." method="_on_boss_niveau_2__enemi_mort"]
 [connection signal="body_entered" from="detection_victoire" to="." method="_on_detection_victoire_body_entered"]

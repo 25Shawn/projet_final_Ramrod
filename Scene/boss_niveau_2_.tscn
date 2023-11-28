@@ -317,10 +317,10 @@ script = ExtResource("5_kdwqs")
 wait_time = 0.5
 
 [node name="barre_vie_ennemi" parent="." instance=ExtResource("16_xcm3t")]
-offset_left = -144.0
-offset_top = -136.0
-offset_right = -144.0
-offset_bottom = -136.0
+offset_left = -72.0
+offset_top = -88.0
+offset_right = -72.0
+offset_bottom = -88.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cgellbv32apdf"]
+[gd_scene load_steps=49 format=3 uid="uid://cgellbv32apdf"]
 
 [ext_resource type="Script" path="res://Script/hero.gd" id="1_5mwos"]
 [ext_resource type="Texture2D" uid="uid://cwd5qms674rv5" path="res://Asset/cyberPunkCharacters/Animation_extra/Dash.png" id="2_1to56"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://sj23wuaa12nb" path="res://Asset/cyberPunkCharacters/Cyborg/1 Characters/Cyborg_hurt.png" id="7_2esy3"]
 [ext_resource type="Script" path="res://Script/point_rotation.gd" id="7_bmmij"]
 [ext_resource type="Texture2D" uid="uid://dgj4cldb8v6xo" path="res://Asset/cyberPunkCharacters/Cyborg/1 Characters/Cyborg_death.png" id="7_mnoew"]
-[ext_resource type="Texture2D" uid="uid://bgbixmow3nw42" path="res://Asset/cyberPunkCharacters/Cyborg/extra_effects/2 Blood/2.png" id="8_8hp43"]
 [ext_resource type="PackedScene" uid="uid://bo4g5wiew8vmc" path="res://Scene/bras_pointe_droite.tscn" id="8_rrmg3"]
 [ext_resource type="PackedScene" uid="uid://ddjasmc1lafgx" path="res://Scene/barre_vie.tscn" id="12_38op8"]
 
@@ -297,42 +296,6 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_saxai"]
-atlas = ExtResource("8_8hp43")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fwxnv"]
-atlas = ExtResource("8_8hp43")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxtjh"]
-atlas = ExtResource("8_8hp43")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfosm"]
-atlas = ExtResource("8_8hp43")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lip25"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_saxai")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fwxnv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxtjh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wfosm")
-}],
-"loop": true,
-"name": &"blood",
-"speed": 12.0
-}]
-
 [node name="hero" type="CharacterBody2D" groups=["joueur_principale"]]
 script = ExtResource("1_5mwos")
 
@@ -351,14 +314,6 @@ sprite_frames = SubResource("SpriteFrames_wx0wb")
 animation = &"hurt"
 autoplay = "Idle"
 frame_progress = 0.0423252
-
-[node name="effets" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-8, 0)
-sprite_frames = SubResource("SpriteFrames_lip25")
-animation = &"blood"
-autoplay = "blood"
-frame_progress = 0.883813
 
 [node name="Timer" type="Timer" parent="."]
 
